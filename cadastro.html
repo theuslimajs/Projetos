@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formulário de cadastro para voluntários e apoiadores da [Nome da ONG].">
+    <title>Cadastro | Participe e Ajude</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Apenas um CSS simples para tornar o formulário mais legível */
+        fieldset { margin-bottom: 20px; padding: 15px; border: 1px solid #ccc; }
+        legend { font-weight: bold; padding: 0 10px; }
+        label { display: block; margin-top: 10px; }
+        input[type="text"], input[type="email"], input[type="tel"], input[type="date"], select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box; /* Garante que o padding não aumente a largura total */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>DIGTECH </h1>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="projetos.html">Projetos Sociais</a></li>
+                <li><a href="cadastro.html">Quero Ajudar! (Cadastro)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Junte-se a Nós! Cadastro de Apoio</h1>
+        <p>Preencha seus dados para se candidatar como voluntário ou para entrar na nossa lista de doadores.</p>
+
+        <form action="#" method="POST">
+            
+            <fieldset>
+                <legend>Dados Pessoais <abbr title="Campo obrigatório">*</abbr></legend>
+                
+                <label for="nome_completo">Nome Completo</label>
+                <input type="text" id="nome_completo" name="nome_completo" 
+                       placeholder="Seu nome completo" required 
+                       title="Por favor, insira seu nome completo.">
+
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" 
+                       placeholder="seu.email@exemplo.com" required>
+
+                <label for="cpf">CPF</label>
+                <input type="text" id="cpf" name="cpf" 
+                       placeholder="000.000.000-00" required 
+                       pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}" 
+                       title="Formato exigido: 000.000.000-00">
+
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" name="telefone" 
+                       placeholder="(00) 99999-9999" required 
+                       pattern="\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}" 
+                       title="Formato exigido: (00) 99999-9999 ou (00) 9999-9999">
+
+                <label for="nascimento">Data de Nascimento</label>
+                <input type="date" id="nascimento" name="nascimento" required>
+
+            </fieldset>
+
+            <fieldset>
+                <legend>Endereço</legend>
+                
+                <label for="cep">CEP</label>
+                <input type="text" id="cep" name="cep" 
+                       placeholder="00000-000" required 
+                       pattern="[0-9]{5}-[0-9]{3}" 
+                       title="Formato exigido: 00000-000">
+
+                <label for="endereco">Endereço (Rua, Número, Bairro)</label>
+                <input type="text" id="endereco" name="endereco" 
+                       placeholder="Ex: Rua A, 123, Bairro Z" required>
+                
+                <label for="cidade">Cidade</label>
+                <input type="text" id="cidade" name="cidade" required>
+                
+                <label for="estado">Estado</label>
+                <select id="estado" name="estado" required>
+                    <option value="" disabled selected>Selecione um Estado</option>
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                </select>
+                
+            </fieldset>
+
+            <fieldset>
+                <legend>Como Você Deseja Contribuir?</legend>
+                <p>Selecione seu principal interesse:</p>
+                
+                <input type="radio" id="interesse_voluntario" name="interesse" value="voluntario" checked>
+                <label for="interesse_voluntario">Quero ser Voluntário</label><br>
+                
+                <input type="radio" id="interesse_doador" name="interesse" value="doador">
+                <label for="interesse_doador">Quero ser Doador/Apoiador</label>
+            </fieldset>
+            
+            <button type="submit">Enviar Cadastro</button>
+            <button type="reset">Limpar Formulário</button>
+            
+        </form>
+    </main>
+
+    <footer>
+        <p>A proteção dos seus dados é nossa prioridade. Consulte nossa Política de Privacidade.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

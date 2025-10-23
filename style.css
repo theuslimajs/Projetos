@@ -1,0 +1,379 @@
+/* ========================================= */
+/* 1. RESET E VARIÁVEIS GLOBAIS              */
+/* ========================================= */
+
+:root {
+    /* Paleta de Cores (Simulação de uma ONG) */
+    --cor-principal: #152e49; /* Azul primário (para botões, links) */
+    --cor-secundaria: #28a745; /* Verde (para destaque/sucesso/doação) */
+    --cor-fundo: #7aabdd; /* Fundo claro */
+    --cor-texto: #474d52; /* Texto escuro */
+    --cor-borda: #dee2e6;
+    
+    /* Tipografia */
+    --fonte-principal: 'Arial', sans-serif;
+}
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    /* Define o tamanho base para facilitar o cálculo de rem */
+    font-size: 16px;
+}
+
+
+body {
+    font-family: var(--fonte-principal);
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* Necessário para o footer fixo no final */
+}
+
+/* Links e Títulos */
+a {
+    color: var(--cor-principal);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--cor-secundaria);
+}
+
+h1, h2, h3 {
+    margin-bottom: 0.5em;
+    font-weight: 700;
+    color: var(--cor-principal);
+}
+
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.8rem; border-bottom: 2px solid var(--cor-borda); padding-bottom: 5px; }
+h3 { font-size: 1.4rem; color: var(--cor-texto); }
+
+
+/* ========================================= */
+/* 2. LAYOUT GERAL (MOBILE-FIRST)            */
+/* ========================================= */
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Header e Navegação */
+header {
+    background-color: var(--cor-principal);
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column; /* Pilha vertical no mobile */
+    align-items: center;
+}
+
+nav li {
+    margin: 0.5rem 0;
+}
+
+nav a {
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+/* Conteúdo Principal */
+main {
+    flex-grow: 1; /* Ocupa o espaço restante */
+    padding: 2rem 0;
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Aside (Lateral ou Destaque) */
+aside {
+    background-color: #ffe4b2; /* Cor de destaque para o aside */
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    text-align: center;
+}
+
+aside h3 {
+    color: var(--cor-texto);
+    margin-bottom: 0.8rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--cor-texto);
+    color: white;
+    padding: 1.5rem 0;
+    text-align: center;
+    margin-top: auto; /* Empurra o footer para o final */
+}
+
+footer p {
+    margin: 0.5rem 0;
+}
+
+/* ========================================= */
+/* 3. IMAGENS E MULTIMÍDIA                   */
+/* ========================================= */
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block; /* Remove o espaço extra abaixo das imagens */
+    margin: 1rem 0;
+}
+
+figure {
+    margin: 1rem 0;
+}
+
+figcaption {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #6c757d;
+    text-align: center;
+}
+
+/* ========================================= */
+/* 4. ESTILOS ESPECÍFICOS DE CONTEÚDO        */
+/* ========================================= */
+
+section {
+    padding: 1.5rem 0;
+    margin-bottom: 2rem;
+}
+
+/* Estilo para Artigos (Projetos) */
+article {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--cor-borda);
+    margin-bottom: 1.5rem;
+}
+
+article h3 {
+    border-bottom: 2px dashed var(--cor-borda);
+    padding-bottom: 5px;
+    margin-top: 0;
+}
+
+/* Estilo para Botões e Links de Ação */
+[role="button"], button, .button-style {
+    display: inline-block;
+    background-color: var(--cor-secundaria);
+    color: white !important;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+[role="button"]:hover, button:hover, .button-style:hover {
+    background-color: #1e7e34;
+}
+
+/* Estilo para Informações de Contato (<address>) */
+address {
+    font-style: normal;
+    background-color: white;
+    padding: 1rem;
+    border-left: 5px solid var(--cor-principal);
+    margin-top: 1rem;
+}
+
+
+/* ========================================= */
+/* 5. ESTILO DO FORMULÁRIO (cadastro.html)   */
+/* ========================================= */
+
+form {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+fieldset {
+    border: 1px solid var(--cor-borda);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 5px;
+}
+
+legend {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--cor-principal);
+    padding: 0 10px;
+    margin-left: -10px; /* Alinha o texto da legenda visualmente */
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+input[type="text"], 
+input[type="email"], 
+input[type="tel"], 
+input[type="date"], 
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: var(--cor-principal);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* Estilo para campos de rádio/checkbox */
+fieldset p {
+    margin-top: 1rem;
+}
+input[type="radio"] {
+    width: auto;
+    margin-right: 5px;
+}
+label[for="interesse_voluntario"], label[for="interesse_doador"] {
+    display: inline-block;
+    font-weight: normal;
+    margin-right: 15px;
+}
+
+/* Botões do Formulário */
+form button[type="submit"] {
+    background-color: var(--cor-principal);
+    margin-right: 1rem;
+}
+
+form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+form button[type="reset"] {
+    background-color: #6c757d; /* Cinza para o botão de reset */
+    color: white;
+}
+
+form button[type="reset"]:hover {
+    background-color: #5a6268;
+}
+
+/* Validação HTML5 Nativa (ajuda a dar feedback visual) */
+input:invalid:not(:focus):not(:placeholder-shown) {
+    border: 2px solid #dc3545; /* Vermelho para campos inválidos */
+}
+input:valid:not(:placeholder-shown) {
+    border: 1px solid var(--cor-secundaria); /* Verde para campos válidos */
+}
+
+
+/* ========================================= */
+/* 6. MEDIA QUERIES (RESPONSIVIDADE)         */
+/* ========================================= */
+
+/* Tablet e Desktop (Acima de 768px) */
+@media (min-width: 768px) {
+    
+    /* Navegação - Layout Horizontal */
+    header h1 {
+        text-align: left;
+    }
+    nav ul {
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    nav li {
+        margin: 0 1rem;
+    }
+
+    /* Layout de Colunas para o Main/Aside */
+    main {
+        display: flex;
+        gap: 2rem;
+    }
+
+    /* Ocupa a maior parte da tela */
+    main > section, 
+    main > h1 {
+        flex: 3; /* Conteúdo principal ocupa 3 partes */
+        order: 1;
+    }
+    
+    /* Aside - Ocupa menos espaço e fica ao lado */
+    aside {
+        flex: 1; /* Aside ocupa 1 parte */
+        order: 2;
+        margin-top: 2.5rem; /* Ajuste para alinhar com o conteúdo principal */
+    }
+    
+    /* Páginas sem Aside (como o formulário de cadastro) */
+    .full-width {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    /* Formulário em Duas Colunas (para campos pequenos como Cidade/Estado) */
+    .form-group-flex {
+        display: flex;
+        gap: 20px;
+    }
+    .form-group-flex > div {
+        flex: 1;
+    }
+    
+    /* Estilo para o cadastro.html, que não tem <aside> no <main> */
+    .cadastro-page main {
+        display: block; /* Desativa o flexbox no main desta página */
+    }
+}
+
+
+/* Desktop Grande (Acima de 1200px) */
+@media (min-width: 1200px) {
+    h1 { font-size: 2.8rem; }
+    h2 { font-size: 2.2rem; }
+}
